@@ -11,7 +11,6 @@ var todoList = angular.module('todoList', [])
       title: 'Done',
       url: 'two.tpl.html'
     }];
-
     $scope.currentTab = 'one.tpl.html';
 
     $scope.onClickTab = function(tab) {
@@ -24,13 +23,17 @@ var todoList = angular.module('todoList', [])
   }])
   .controller('ListItemCtrl', ['$scope', function($scope) {
     $scope.list = ["Go to cinema", "print photoshop lessons "];
+    $scope.doneList = [];
+    $scope.removeToDone = function(item) {
+      var index = $scope.list.indexOf(item);
+      $scope.list.splice(index,1);
+      $scope.doneList.push(item);
+    }
   }])
   .controller('addingNewItemCtrl', ['$scope', function($scope) {
     $scope.toDo = "try something to do";
     $scope.addItem = function() {
-      console.log($scope.list[0]);
-      // $scope.list.push("something");
-      alert($scope.list);
-
+      $scope.list.push($scope.toDo);
+      $scope.toDo = "";
     }
   }]);

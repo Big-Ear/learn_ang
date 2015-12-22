@@ -26,3 +26,12 @@ li {
 #tabs {
   width: 500px;
 }
+#addItem{
+padding-top:50px;
+
+}
+
+#btn{
+float:right;
+margin-right:200px;
+}
